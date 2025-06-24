@@ -1,5 +1,6 @@
 import { fetchImages } from './js/pixabay-api';
 import { renderGallery, clearGallery } from './js/render-functions';
+import { showLoader, hideLoader } from './js/render-functions';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
@@ -28,7 +29,7 @@ async function onSearch(e) {
   currentQuery = query;
   currentPage = 1;
   clearGallery();
-  toggleLoader(true);
+  showLoader(); 
 
   try {
     const data = await fetchImages(currentQuery, currentPage, perPage);
@@ -50,9 +51,6 @@ async function onSearch(e) {
       position: 'topRight',
     });
   } finally {
-    toggleLoader(false);
+    hideLoader();
   }
 }
-
-const toggleLoader = isLoading =>
-  (loader.style.display = isLoading ? 'inline-block' : 'none');

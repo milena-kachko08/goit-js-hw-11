@@ -58,3 +58,11 @@ export const clearGallery = () => {
   const gallery = document.querySelector('.gallery');
   gallery.innerHTML = '';
 };
+
+export function showLoader() {
+  loader.style.display = 'inline-block';
+}
+
+export function hideLoader() {
+  loader.style.display = 'none';
+}
