@@ -60,9 +60,11 @@ export const clearGallery = () => {
 };
 
 export function showLoader() {
+  const loader = document.querySelector('.loader');
   loader.style.display = 'inline-block';
 }
 
 export function hideLoader() {
+  const loader = document.querySelector('.loader');
   loader.style.display = 'none';
 }
